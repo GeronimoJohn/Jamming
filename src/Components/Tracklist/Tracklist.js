@@ -3,7 +3,7 @@ import "./Tracklist.css";
 
 const Tracklist = () => {
   return (
-    <div class="TrackList">
+    <div className="TrackList">
       {/* <!-- You will add a map method that renders a set of Track components  --> */}
     </div>
   );
