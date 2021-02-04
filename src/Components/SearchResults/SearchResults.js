@@ -1,13 +1,15 @@
-import React from "react";
-import "./SearchResults.css";
+import React, { Component } from 'react';
+import "./SearchResults.css"
 
-const SearchResults = () => {
-  return (
-    <div className="SearchResults">
-      <h2>Results</h2>
-      {/* <!-- Add a TrackList component --> */}
-    </div>
-  );
-};
+export class SearchResults extends Component {
+  render() {
+    return (
+      <div className="SearchResults">
+        <h2>Results</h2>
+        {/* <!-- Add a TrackList component --> */}
+      </div>
+    )
+  }
+}
 
-export default SearchResults;
+export default SearchResults
