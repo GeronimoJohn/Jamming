@@ -1,5 +1,5 @@
 import React from "react";
-import "./Playlist.js";
+import "./Playlist.css";
 
 const Playlist = () => {
   return (
