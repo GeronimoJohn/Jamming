@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import './SearchBar.css'
+import React, { Component } from "react";
+import "./SearchBar.css";
 
 export class SearchBar extends Component {
   render() {
@@ -8,9 +8,8 @@ export class SearchBar extends Component {
         <input placeholder="Enter A Song, Album, or Artist" />
         <button className="SearchButton">SEARCH</button>
       </div>
-    )
+    );
   }
 }
 
-export default SearchBar
-
+export default SearchBar;
