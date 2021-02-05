@@ -9,7 +9,13 @@ export class Tracklist extends Component {
         {/* gets pass in two different props/states - playlistTracks and searchResults */}
         {this.props.tracks.map((track) => {
           return (
-            <Track track={track} key={track.id} addon={this.props.addons} />
+            <Track
+              track={track}
+              key={track.id}
+              addon={this.props.addons}
+              onremove={this.props.removetrack}
+              isremoval={this.props.isRemoval}
+            />
           );
         })}
       </div>
