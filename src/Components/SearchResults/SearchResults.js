@@ -7,8 +7,12 @@ export class SearchResults extends Component {
     return (
       <div className="SearchResults">
         <h2>Results</h2>
-        {/* <!-- Add a TrackList component --> */}
-        <TrackList tracks={this.props.searchResults} />
+        {/* tracklist component that passes in different props with and without states*/}
+        <TrackList
+          tracks={this.props.searchResults}
+          addons={this.props.addOn}
+          isRemoval={false}
+        />
       </div>
     );
   }

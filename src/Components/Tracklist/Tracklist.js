@@ -6,10 +6,11 @@ export class Tracklist extends Component {
   render() {
     return (
       <div className="TrackList">
-        {/* to do: Below comment */}
-        {/* <!-- You will add a map method that renders a set of Track components  --> */}
+        {/* gets pass in two different props/states - playlistTracks and searchResults */}
         {this.props.tracks.map((track) => {
-          return <Track track={track} key={track.id} />;
+          return (
+            <Track track={track} key={track.id} addon={this.props.addons} />
+          );
         })}
       </div>
     );

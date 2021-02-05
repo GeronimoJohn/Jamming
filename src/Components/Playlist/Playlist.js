@@ -7,6 +7,7 @@ export class Playlist extends Component {
     return (
       <div className="Playlist">
         <input defaultValue={"New Playlist"} />
+        {/* gets passed on with the playlistTracks state and passes it on as a prop to Tracklsit */}
         <Tracklist tracks={this.props.playlistTracks} />
         <button className="Playlist-save">SAVE TO SPOTIFY</button>
       </div>

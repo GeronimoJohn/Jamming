@@ -15,12 +15,29 @@ export class App extends Component {
       ],
       playlistName: "sample playlist",
       playlistTracks: [
-        { name: "name1", artist: "artist1", album: "album1", id: "id1" },
+        {
+          name: "playlistName1",
+          artist: "artist1",
+          album: "album1",
+          id: "id4",
+        },
       ],
     };
+    this.addTrack = this.addTrack.bind(this);
   }
 
-  addTrack() {}
+  // add tracks to the playlist
+  addTrack(track) {
+    let tracks = this.state.playlistTracks;
+
+    // if a track is already saved then dont enable adding it on
+    if (tracks.find((savedTrack) => savedTrack.id === track.id)) {
+      return;
+    }
+
+    tracks.push(track);
+    this.setState({ playlistTracks: tracks });
+  }
 
   render() {
     return (
@@ -31,7 +48,12 @@ export class App extends Component {
         <div className="App">
           <SearchBar />
           <div className="App-playlist">
-            <SearchResults searchResults={this.state.searchResults} />
+            {/* passes on the searchResults state and the addTrack method */}
+            <SearchResults
+              searchResults={this.state.searchResults}
+              addOn={this.addTrack}
+            />
+            {/* passes on the playlistName and playlistTracks states */}
             <Playlist
               playlistName={this.state.playlistName}
               playlistTracks={this.state.playlistTracks}
