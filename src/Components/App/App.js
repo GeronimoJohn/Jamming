@@ -13,8 +13,15 @@ export class App extends Component {
         { name: "name2", artist: "artist2", album: "album2", id: "id2" },
         { name: "name3", artist: "artist3", album: "album3", id: "id3" },
       ],
+      playlistName: "sample playlist",
+      playlistTracks: [
+        { name: "name1", artist: "artist1", album: "album1", id: "id1" },
+      ],
     };
   }
+
+  addTrack() {}
+
   render() {
     return (
       <div>
@@ -25,7 +32,10 @@ export class App extends Component {
           <SearchBar />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} />
-            <Playlist />
+            <Playlist
+              playlistName={this.state.playlistName}
+              playlistTracks={this.state.playlistTracks}
+            />
           </div>
         </div>
       </div>
