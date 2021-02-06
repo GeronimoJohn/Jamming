@@ -7,6 +7,7 @@ import "./App.css";
 export class App extends Component {
   constructor(props) {
     super(props);
+    // sets the state of the different values
     this.state = {
       searchResults: [
         { name: "name1", artist: "artist1", album: "album1", id: "id1" },
@@ -23,6 +24,7 @@ export class App extends Component {
         },
       ],
     };
+    // methods are binded - this updates the state if there is anything that changes within the method
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
