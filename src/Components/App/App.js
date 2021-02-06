@@ -26,6 +26,7 @@ export class App extends Component {
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
+    this.savePlaylist = this.savePlaylist.bind(this);
   }
 
   // add tracks to the playlist
@@ -41,6 +42,7 @@ export class App extends Component {
     this.setState({ playlistTracks: tracks });
   }
 
+  // removes track from the playlist
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
 
@@ -50,8 +52,14 @@ export class App extends Component {
     this.setState({ playlistTracks: tracks });
   }
 
+  // updates the playlists name
   updatePlaylistName(name) {
     this.setState({ playlistName: name });
+  }
+
+  // enables you to save the playlist
+  savePlaylist() {
+    let tracksURI = this.state.playlistTracks.map((track) => track.uri);
   }
 
   render() {
@@ -74,6 +82,7 @@ export class App extends Component {
               playlistTracks={this.state.playlistTracks}
               onRemove={this.removeTrack}
               onNameChange={this.updatePlaylistName}
+              onSave={this.savePlaylist}
             />
           </div>
         </div>
