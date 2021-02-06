@@ -65,6 +65,12 @@ export class App extends Component {
   savePlaylist() {
     alert("this is working");
     let tracksURI = this.state.playlistTracks.map((track) => track.uri);
+    Spotify.savePlaylist(this.state.playlistName, trackUris).then(() => {
+      this.state = {
+        playlistName: "New Playlist",
+        playlistTracks: [],
+      };
+    });
   }
 
   // Connects to the spotify api and searchs songs
