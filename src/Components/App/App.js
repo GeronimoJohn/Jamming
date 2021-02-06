@@ -29,6 +29,7 @@ export class App extends Component {
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
+    this.search = this.search.bind(this);
   }
 
   // add tracks to the playlist
@@ -61,7 +62,13 @@ export class App extends Component {
 
   // enables you to save the playlist
   savePlaylist() {
+    alert("this is working");
     let tracksURI = this.state.playlistTracks.map((track) => track.uri);
+  }
+
+  // Connects to the spotify api and searchs songs
+  search(term) {
+    console.log(term);
   }
 
   render() {
@@ -71,7 +78,7 @@ export class App extends Component {
           Ja<span className="highlight">mmm</span>ing
         </h1>
         <div className="App">
-          <SearchBar />
+          <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             {/* passes on the searchResults state and the addTrack method */}
             <SearchResults
