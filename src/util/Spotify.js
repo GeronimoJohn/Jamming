@@ -23,7 +23,32 @@ const Spotify = {
       return userAccessToken;
     } else {
       const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientID}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+      window.location = accessUrl;
     }
+  },
+
+  search(term) {
+    const accessToken = Spotify.getAccessToken();
+    return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((jsonResponse) => {
+        if (!jsonResponse.tracks) {
+          return [];
+        }
+        return jsonResponse.tracks.item.map((tracks) => ({
+          id: tracks.id,
+          name: tracks.name,
+          artists: tracks.artists[0].name,
+          album: tracks.album,
+          uri: track.uri,
+        }));
+      });
   },
 };
 
